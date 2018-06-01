@@ -2,6 +2,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    display: none;
 }
 
 /* Wrapping element */
@@ -35,4 +36,19 @@ input[type="select"] {
     .body-content {
         padding: 0;
     }
+}
+
+.ajaxLoader {
+    position: fixed;
+    box-sizing: content-box;
+    top: 50%;
+    right: 50%;
+    border-radius: 40px;
+    border: 2px solid #f0ad4e;
+    background-color: white;
+    padding: 3px;
+    width: 50px;
+    height: 50px;
+    z-index: 3000;
+    display: none;
 }
