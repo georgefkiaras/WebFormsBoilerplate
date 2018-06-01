@@ -15,6 +15,8 @@
         $('#postModal').modal('show');
     });
     $("#submitMessage").on("click", submitMessage);
+    $("#validationErrorButton").on("click", submitValidationError);
+    $("#exceptionButton").on("click", submitException);
 })
 
 var submitMessage = function () {
@@ -26,7 +28,42 @@ var submitMessage = function () {
         $(".ajaxLoader").hide();
         $('#postModal').modal('hide');
         location.href = location.href;
-    });
+    }).fail(function (response) {
+        $(".ajaxLoader").hide();
+        $("#errorModalMessageBody").text(response.responseText);
+        $('#errorModal').modal('show');
+        console.log("Message Error: ", response);
+    });;
+}
+
+var submitValidationError = function () {
+    var message = $("#messageBox").val();
+    var valuesObj = {}; //new object
+    valuesObj.Message = message;
+    $(".ajaxLoader").show();
+    $.post("api/ValidationError", valuesObj, function (data) {
+        //success will never execute
+    }).fail(function (response) {
+        $(".ajaxLoader").hide();
+        $("#errorModalMessageBody").text(response.responseText);
+        $('#errorModal').modal('show');
+        console.log("Message Error: ", response);
+    });;
+}
+
+var submitException = function () {
+    var message = $("#messageBox").val();
+    var valuesObj = {}; //new object
+    valuesObj.Message = message;
+    $(".ajaxLoader").show();
+    $.post("api/Exception", valuesObj, function (data) {
+        //success will never execute
+    }).fail(function (response) {
+        $(".ajaxLoader").hide();
+        $("#errorModalMessageBody").text(response.responseText);
+        $('#errorModal').modal('show');
+        console.log("Message Error: ", response);
+    });;
 }
 
 var viewStationModal = function (event) {

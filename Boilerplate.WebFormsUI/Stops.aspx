@@ -84,14 +84,36 @@
                     <input type="text" id="messageBox" placeholder="Enter message." class="form-control" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">
-                        Cancel
-                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    <button type="button" class="btn btn-danger" id="exceptionButton">
+                        Simulate exception
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                    <button type="button" class="btn btn-warning" id="validationErrorButton">
+                        Simulate validation error
+                        <span class="glyphicon glyphicon-arrow-right"></span>
                     </button>
                     <button type="button" class="btn btn-success" id="submitMessage">
                         Submit
                         <span class="glyphicon glyphicon-arrow-right"></span>
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">An Error has Occurred</h4>
+                </div>
+                <div class="modal-body" id="errorModalMessageBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>

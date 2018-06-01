@@ -425,6 +425,7 @@
       <DependentUpon>Stops.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\ValidationExceptionFilterAttribute.cs" />
     <Compile Include="ValidationError.aspx.cs">
       <DependentUpon>ValidationError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

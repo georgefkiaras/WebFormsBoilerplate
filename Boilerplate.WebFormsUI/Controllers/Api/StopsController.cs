@@ -1,7 +1,9 @@
 ﻿using Boilerplate.Data.Models.Dto;
 using Boilerplate.Data.Models.Repositories;
+using Boilerplate.WebFormsUI.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,6 +13,7 @@ using System.Web.Http;
 
 namespace Boilerplate.WebFormsUI.Controllers.Api
 {
+    [ValidationExceptionFilterAttribute]
     public class StopsController : ApiController
     {
         private StopsRepo _s;
@@ -61,6 +64,22 @@ namespace Boilerplate.WebFormsUI.Controllers.Api
             }
             MessageRepo.LastDateTime = DateTime.Now;
             return "Message update success";
+        }
+
+        [HttpPost]
+        [Route("api/ValidationError")]
+        public string ValidationError(MessageUpdateDto messageDto)
+        {
+            throw new ValidationException("There was a validation exception thrown. Something would be wrong with the input in this case.");
+            return "You will never see me.";
+        }
+
+        [HttpPost]
+        [Route("api/Exception")]
+        public string ExceptionError(MessageUpdateDto messageDto)
+        {
+            throw new NotImplementedException();
+            return "You will never see me.";
         }
     }
 }
