@@ -19,6 +19,7 @@ namespace Boilerplate.WebFormsUI
             base.DataBinder = BindData;
             if (!Page.IsPostBack)
             {
+                SetSortColumnForPage("Id", false);
                 BindData();
             }
         }

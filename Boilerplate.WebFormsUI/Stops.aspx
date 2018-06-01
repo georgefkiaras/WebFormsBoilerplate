@@ -5,6 +5,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Stops (<%=StopsCount %>)</h1>
     <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <asp:LinkButton runat="server" OnClick="sortColumn_click" CommandArgument="Id">
+                        Id
+                        <Controls:SortArrows runat="server" CurrentSortInfo="<%#CurrentSortInfo%>" SortColumn="Id" />
+                    </asp:LinkButton>
+                </th>
+                <th>
+                    <asp:LinkButton runat="server" OnClick="sortColumn_click" CommandArgument="Name">
+                        Name
+                        <Controls:SortArrows runat="server" CurrentSortInfo="<%#CurrentSortInfo%>" SortColumn="Name" />
+                    </asp:LinkButton>
+                </th>
+                <th>
+                    Longitude
+                </th>
+                <th>
+                    Latitude
+                </th>
+            </tr>
+        </thead>
         <tbody>
             <asp:Repeater runat="server" ID="stopsRepeater">
                 <ItemTemplate>
