@@ -42,20 +42,17 @@
                 <div class="modal-body">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th>
-                                Id:
+                            <th>Id:
                             </th>
                             <td id="stationModalId"></td>
                         </tr>
                         <tr>
-                            <th>
-                                Longitude
+                            <th>Longitude
                             </th>
                             <td id="stationModalLat"></td>
                         </tr>
                         <tr>
-                            <th>
-                                Latitude
+                            <th>Latitude
                             </th>
                             <td id="stationModalLon"></td>
                         </tr>
@@ -72,9 +69,48 @@
     </div>
     <!--End Modal-->
 
+    <!-- Modal -->
+    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Post Data Modal</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This modal sends a text value to the server, and refreshes this page to see the sent message.  Enter an empty value to clear the message.
+                    </p> 
+                    <input type="text" id="messageBox" placeholder="Enter message." class="form-control" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">
+                        Cancel
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </button>
+                    <button type="button" class="btn btn-success" id="submitMessage">
+                        Submit
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal-->
+
     <h1>Stops (<%=StopsCount %>)</h1>
-    <button class="btn btn-success btn-sm" id="modalOpenButton">Modal Demo</button>
+    <span class="btn btn-success btn-sm" id="modalOpenButton">SimpleModal Demo</span>
+    <span class="btn btn-success btn-sm" id="postOpenButton">Send Data to Server via Modal Demo</span>
     <div class="spacer"></div>
+    <%if (LastMessage.Length > 0)
+        { %>
+    <h2>
+        <span class="label label-success">
+            <%=LastMessage %> @ <%=LastMessageDate.ToString() %>
+        </span>
+    </h2>
+
+    <%} %>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -90,11 +126,9 @@
                         <Controls:SortArrows runat="server" CurrentSortInfo="<%#CurrentSortInfo%>" SortColumn="Name" />
                     </asp:LinkButton>
                 </th>
-                <th>
-                    Longitude
+                <th>Longitude
                 </th>
-                <th>
-                    Latitude
+                <th>Latitude
                 </th>
                 <th></th>
             </tr>
@@ -105,11 +139,9 @@
                 <th>
                     <asp:TextBox runat="server" ID="nameFilter" CssClass="form-control input-sm" placeholder="Filter by Name" AutoPostBack="true" OnTextChanged="Filter_Change"></asp:TextBox>
                 </th>
-                <th>
-                    &nbsp;
+                <th>&nbsp;
                 </th>
-                <th>
-                    &nbsp;
+                <th>&nbsp;
                 </th>
                 <td class="text-center">
                     <asp:LinkButton runat="server" CssClass="btn btn-success btn-sm" OnClick="Filter_Change">

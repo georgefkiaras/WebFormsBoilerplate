@@ -49,5 +49,18 @@ namespace Boilerplate.WebFormsUI.Controllers.Api
         {
             return _stopsRepo.GetStop(stopId);
         }
+
+        [HttpPost]
+        [Route("api/Message")]
+        public string SetMessage(MessageUpdateDto messageDto)
+        {
+            MessageRepo.Message = messageDto.Message;
+            if(MessageRepo.Message == null)
+            {
+                MessageRepo.Message = "";
+            }
+            MessageRepo.LastDateTime = DateTime.Now;
+            return "Message update success";
+        }
     }
 }

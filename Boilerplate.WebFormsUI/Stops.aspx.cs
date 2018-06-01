@@ -14,6 +14,8 @@ namespace Boilerplate.WebFormsUI
     public partial class Stops : BasePage
     {
         public int StopsCount = 0;
+        public string LastMessage = "";
+        public DateTime LastMessageDate = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
             base.DataBinder = BindData;
@@ -26,6 +28,8 @@ namespace Boilerplate.WebFormsUI
 
         private void BindData()
         {
+            LastMessage = MessageRepo.Message;
+            LastMessageDate = MessageRepo.LastDateTime;
             var stops = _stopsRepo.GetAllStops();
 
             if(idFilter.Text != string.Empty)
