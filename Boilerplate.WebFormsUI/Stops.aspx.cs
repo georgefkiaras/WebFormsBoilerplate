@@ -51,6 +51,8 @@ namespace Boilerplate.WebFormsUI
             BindPaginationControls(pageNumbersRepeater: pageNumbersRepeater, recordsPerPageRepeater: recordsPerPageRepeater);
         }
 
+
+        #region filters
         protected void Filter_Change(object sender, EventArgs e)
         {
             BindData();
@@ -67,5 +69,17 @@ namespace Boilerplate.WebFormsUI
             idFilter.Text = "";
             nameFilter.Text = "";
         }
+        #endregion
+
+        #region formatters
+
+        public string FormatDetailButton(object o)
+        {
+            var stop = (StopDto)o;
+            var returnString = string.Format("<span class='btn btn-warning btn-sm stationViewButton' data-station-id='{0}'>View &raquo;</span>", stop.Id);
+            return returnString;
+        }
+
+        #endregion
     }
 }

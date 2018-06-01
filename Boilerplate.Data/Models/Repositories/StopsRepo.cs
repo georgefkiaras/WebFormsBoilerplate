@@ -60,7 +60,10 @@ namespace Boilerplate.Data.Models.Repositories
             return _stops.Where(s => string.IsNullOrEmpty(s.ParentStation)).ToList();
         }
 
-
+        public StopDto GetStop(string stopId)
+        {
+            return _stops.FirstOrDefault(s => s.Id == stopId);
+        }
 
     }
 }

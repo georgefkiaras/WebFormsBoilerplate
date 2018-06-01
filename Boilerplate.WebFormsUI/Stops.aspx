@@ -31,6 +31,47 @@
     </div>
     <!--End Modal-->
 
+    <!-- Modal -->
+    <div class="modal fade" id="stationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalStationNameTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>
+                                Id:
+                            </th>
+                            <td id="stationModalId"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Longitude
+                            </th>
+                            <td id="stationModalLat"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Latitude
+                            </th>
+                            <td id="stationModalLon"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        Ok
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal-->
+
     <h1>Stops (<%=StopsCount %>)</h1>
     <button class="btn btn-success btn-sm" id="modalOpenButton">Modal Demo</button>
     <div class="spacer"></div>
@@ -55,7 +96,7 @@
                 <th>
                     Latitude
                 </th>
-                <th colspan="2"></th>
+                <th></th>
             </tr>
             <tr>
                 <th>
@@ -74,8 +115,6 @@
                     <asp:LinkButton runat="server" CssClass="btn btn-success btn-sm" OnClick="Filter_Change">
                         <span class="glyphicon glyphicon-search"></span>
                     </asp:LinkButton>
-                </td>
-                <td class="text-center">
                     <asp:LinkButton runat="server" CssClass="btn btn-warning btn-sm" OnClick="Filter_Clear">
                         <span class="glyphicon glyphicon-ban-circle"></span>
                     </asp:LinkButton>
@@ -98,7 +137,9 @@
                         <td>
                             <%#((StopDto)Container.DataItem).Latitude %>
                         </td>
-                        <td colspan="2"></td>
+                        <td class="text-center">
+                            <%#FormatDetailButton(Container.DataItem) %>
+                        </td>
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>
