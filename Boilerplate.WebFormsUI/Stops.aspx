@@ -25,6 +25,31 @@
                 <th>
                     Latitude
                 </th>
+                <th colspan="2"></th>
+            </tr>
+            <tr>
+                <th>
+                    <asp:TextBox runat="server" ID="idFilter" CssClass="form-control input-sm" placeholder="Filter by Id" AutoPostBack="true" OnTextChanged="Filter_Change"></asp:TextBox>
+                </th>
+                <th>
+                    <asp:TextBox runat="server" ID="nameFilter" CssClass="form-control input-sm" placeholder="Filter by Name" AutoPostBack="true" OnTextChanged="Filter_Change"></asp:TextBox>
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+                <td class="text-center">
+                    <asp:LinkButton runat="server" CssClass="btn btn-success btn-sm" OnClick="Filter_Change">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </asp:LinkButton>
+                </td>
+                <td class="text-center">
+                    <asp:LinkButton runat="server" CssClass="btn btn-warning btn-sm" OnClick="Filter_Clear">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </asp:LinkButton>
+                </td>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +68,7 @@
                         <td>
                             <%#((StopDto)Container.DataItem).Latitude %>
                         </td>
+                        <td colspan="2"></td>
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>

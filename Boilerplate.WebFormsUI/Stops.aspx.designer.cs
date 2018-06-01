@@ -13,6 +13,24 @@ namespace Boilerplate.WebFormsUI {
     public partial class Stops {
         
         /// <summary>
+        /// idFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox idFilter;
+        
+        /// <summary>
+        /// nameFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nameFilter;
+        
+        /// <summary>
         /// stopsRepeater control.
         /// </summary>
         /// <remarks>
