@@ -52,3 +52,8 @@ input[type="select"] {
     z-index: 3000;
     display: none;
 }
+
+.spacer {
+    height: 0px;
+    margin: 10px;
+}
