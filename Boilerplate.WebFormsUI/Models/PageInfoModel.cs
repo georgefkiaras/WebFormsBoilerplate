@@ -21,7 +21,7 @@ namespace Boilerplate.WebFormsUI.Models
         public PageInfoModel()
         {
             CurrentPage = 1;
-            RecordsPerPage = 50;
+            RecordsPerPage = 5;
             TotalRecords = 0;
         }
     }

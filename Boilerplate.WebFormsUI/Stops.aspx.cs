@@ -52,7 +52,7 @@ namespace Boilerplate.WebFormsUI
             stopsRepeater.DataSource = GetPagedData(stops);
             stopsRepeater.DataBind();
             this.DataBind();
-            BindPaginationControls(pageNumbersRepeater: pageNumbersRepeater, recordsPerPageRepeater: recordsPerPageRepeater);
+            BindRecordsPerPageRepeater(recordsPerPageRepeater);
         }
 
 

@@ -232,11 +232,20 @@ namespace Boilerplate.WebFormsUI
 
         protected void BindPaginationControls(Repeater pageNumbersRepeater, Repeater recordsPerPageRepeater)
         {
+            BindPageNumbersRepeater(pageNumbersRepeater);
+            BindRecordsPerPageRepeater(recordsPerPageRepeater);
+        }
+
+        protected void BindPageNumbersRepeater(Repeater pageNumbersRepeater)
+        {
             var pageList = Enumerable.Range(1, CurrentPageInfo.TotalPages).ToList();
             pageNumbersRepeater.DataSource = pageList;
             pageNumbersRepeater.DataBind();
+        }
 
-            var recordsPerPageList = new List<int> { 5, 10, 50, 100 };
+        protected void BindRecordsPerPageRepeater(Repeater recordsPerPageRepeater)
+        {
+            var recordsPerPageList = new List<int> { 5, 10, 50, 100, 200 };
             recordsPerPageRepeater.DataSource = recordsPerPageList;
             recordsPerPageRepeater.DataBind();
         }

@@ -203,25 +203,30 @@
 
 
 
+     <!--Pagination-->
     <div class="spacer"></div>
     <div class="row">
-        <div class="col-xs-4 text-right">
+        <div class="col-xs-5 text-right">
+            <asp:LinkButton runat="server" CssClass="btn btn-sm btn-success" OnClick="PageNum_Click" CommandArgument="1">
+                <span class="glyphicon glyphicon-fast-backward"></span> First
+            </asp:LinkButton>
             <asp:LinkButton runat="server" CssClass="btn btn-sm btn-success" OnClick="PrevPage_Click">
-                <span class="glyphicon glyphicon-arrow-left"></span>
+                <span class="glyphicon glyphicon-step-backward"></span> Previous
             </asp:LinkButton>
         </div>
-        <div class="col-xs-4 text-center">
-            <asp:Repeater runat="server" ID="pageNumbersRepeater">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server" OnClick="PageNum_Click" CommandArgument="<%# ((int)Container.DataItem) %>">
-                        <%#FormatPageNumberBtn(Container.DataItem) %>
-                    </asp:LinkButton>
-                </ItemTemplate>
-            </asp:Repeater>
+        <div class="col-xs-2 text-center">
+            <span class="badge">Page
+            <%=CurrentPageInfo.CurrentPage %> /
+                <%=CurrentPageInfo.TotalPages %>
+            </span>
         </div>
-        <div class="col-xs-4 text-left">
+
+        <div class="col-xs-5 text-left">
             <asp:LinkButton runat="server" CssClass="btn btn-sm btn-success" OnClick="NextPage_Click">
-                <span class="glyphicon glyphicon-arrow-right"></span>
+                Next <span class="glyphicon glyphicon-step-forward"></span>
+            </asp:LinkButton>
+            <asp:LinkButton runat="server" CssClass="btn btn-sm btn-success" OnClick="PageNum_Click" CommandArgument="<%#CurrentPageInfo.TotalPages %>">
+                Last <span class="glyphicon glyphicon-fast-forward"></span>
             </asp:LinkButton>
         </div>
     </div>
@@ -242,8 +247,4 @@
             Records per page
         </div>
     </div>
-
-
-
-
 </asp:Content>
