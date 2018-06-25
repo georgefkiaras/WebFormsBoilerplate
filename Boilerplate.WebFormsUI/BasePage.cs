@@ -171,7 +171,15 @@ namespace Boilerplate.WebFormsUI
 
         protected void NextPage_Click(object sender, EventArgs e)
         {
-            SetPagingInfo(++CurrentPageInfo.CurrentPage, CurrentPageInfo.RecordsPerPage);
+            var nextPage = ++CurrentPageInfo.CurrentPage;
+            if (nextPage <= CurrentPageInfo.TotalPages)
+            {
+                SetPagingInfo(nextPage, CurrentPageInfo.RecordsPerPage);
+            }
+            else
+            {
+                SetPagingInfo(1, CurrentPageInfo.RecordsPerPage);
+            }
             DataBinder();
         }
 
@@ -180,6 +188,10 @@ namespace Boilerplate.WebFormsUI
             if (CurrentPageInfo.CurrentPage > 1)
             {
                 SetPagingInfo(--CurrentPageInfo.CurrentPage, CurrentPageInfo.RecordsPerPage);
+            }
+            else
+            {
+                SetPagingInfo(CurrentPageInfo.TotalPages, CurrentPageInfo.RecordsPerPage);
             }
             DataBinder();
         }
