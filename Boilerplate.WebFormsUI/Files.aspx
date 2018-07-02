@@ -25,8 +25,15 @@
         </div>
     </div>
     <!--End Modal-->
-
-
+    <h1>Files</h1>
+    <p>
+        Demonstration of the basic nuts-and-bolts of getting the file up via web forms or jquery + webAPI.  This method on it's own is inherently insecure and 
+        would only be used in an authenticated context.
+    </p>
+    <p>
+        Uploaded files can be accessed directly in this case.  In most cases however, an uploaded file would be accessed by a database ID and stored on a non-public
+        folder on the web server for security.  Additional restrictions on file types would also be in a place.
+    </p>
     <h3>jQuery + WebAPI File Upload</h3>
     <div class="row">
         <div class="col-xs-6 col-md-4">
@@ -50,7 +57,7 @@
             </asp:LinkButton>
         </div>
     </div>
-    <h3>Files</h3>
+    <h3>File List</h3>
     <table class="table table-bordered table-striped">
         <tbody>
             <asp:Repeater runat="server" ID="filesRepeater">
