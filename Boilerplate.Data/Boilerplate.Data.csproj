@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Models\Dto\MessageUpdateDto.cs" />
     <Compile Include="Models\Dto\StopDto.cs" />
+    <Compile Include="Models\Repositories\FilesRepo.cs" />
     <Compile Include="Models\Repositories\MessageRepo.cs" />
     <Compile Include="Models\Repositories\StopsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
