@@ -16,7 +16,7 @@ namespace Boilerplate.WebFormsUI
         {
             get
             {
-                return HttpContext.Current.Server.MapPath("~/App_Data/Files");
+                return HttpContext.Current.Server.MapPath("~/UserFiles");
             }
         }
 

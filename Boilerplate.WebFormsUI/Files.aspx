@@ -21,10 +21,13 @@
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <%#((FileInfo)Container.DataItem).FullName %>
+                            <%#((FileInfo)Container.DataItem).Name %>
                         </td>
                         <td>
-                            (file download)
+                            <a href="../UserFiles/<%#  ((FileInfo)Container.DataItem).Name %>" class="btn btn-warning btn-sm">
+                                Download
+                                <span class="glyphicon glyphicon-download"></span>
+                            </a>
                         </td>
                     </tr>
                 </ItemTemplate>

@@ -388,6 +388,7 @@
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Controllers\Api\FilesController.cs" />
     <Compile Include="Controllers\Api\StopsController.cs" />
     <Compile Include="Controls\SortArrows.ascx.cs">
       <DependentUpon>SortArrows.ascx</DependentUpon>
