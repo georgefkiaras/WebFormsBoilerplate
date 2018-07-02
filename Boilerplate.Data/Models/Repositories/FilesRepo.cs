@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Boilerplate.Data.Models.Repositories
 {
@@ -36,6 +38,17 @@ namespace Boilerplate.Data.Models.Repositories
         public List<FileInfo> GetAllFiles()
         {
             return _filesRootDirectoryInfo.GetFiles().ToList();
+        }
+
+        public void UploadFile(HttpPostedFile postedFile)
+        {
+            var savePath = Path.Combine(_filesRootPath, postedFile.FileName);
+            FileInfo fileInfo = new FileInfo(savePath);
+            if (fileInfo.Exists)
+            {
+                throw new ValidationException("File Exists");
+            }
+            postedFile.SaveAs(savePath);
         }
     }
 }

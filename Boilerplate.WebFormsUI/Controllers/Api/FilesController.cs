@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Boilerplate.Data.Models.Repositories;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -43,6 +45,28 @@ namespace Boilerplate.WebFormsUI.Controllers.Api
 
             return response;
 
+        }
+
+        //https://forums.asp.net/t/2104884.aspx?Uploading+a+file+using+webapi+C+
+        [HttpPost]
+        [Route("api/File")]
+        public void UploadFile()
+        {
+            if (HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                // Get the uploaded image from the Files collection
+                var httpPostedFile = HttpContext.Current.Request.Files["FileUploadHolder"];
+
+                if (httpPostedFile != null)
+                {
+                    var filesRepo = new FilesRepo(HttpContext.Current.Server.MapPath("~/UserFiles"));
+                    filesRepo.UploadFile(httpPostedFile);
+                }
+                else
+                {
+                    throw new ValidationException("No file provided.");
+                }
+            }
         }
     }
 }

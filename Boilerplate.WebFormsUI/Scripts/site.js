@@ -17,6 +17,7 @@
     $("#submitMessage").on("click", submitMessage);
     $("#validationErrorButton").on("click", submitValidationError);
     $("#exceptionButton").on("click", submitException);
+    $(".fileUploader").on("change", saveFile);
 })
 
 var submitMessage = function () {
@@ -79,4 +80,36 @@ var viewStationModal = function (event) {
         $("#stationModalLat").text(data.Latitude);
         $("#stationModal").modal('show');
     });
+}
+
+var saveFile = function (event) {
+    var fileUploadElement = $(event.target).get(0);
+    var files = fileUploadElement.files;
+    if (files != null && files.length > 0) {
+        var file = files[0];
+        var fileData = new FormData();
+        fileData.append("FileUploadHolder", file);
+        $(".ajaxLoader").show();
+
+        var fileUploadAjax = $.ajax({
+            type: "POST",
+            url: "api/File/",
+            contentType: false,
+            processData: false,
+            data: fileData,
+            success: function (response) {
+                console.log("File upload success: ", response);
+                $(".ajaxLoader").hide();
+                //TODO: replace with page refresh
+                location.href = location.href;
+            },
+            error: function (response) {
+                console.log("File upload fail: ", response.responseJSON);
+                $(".ajaxLoader").hide();
+                $("#messageModalHeader").text("Error");
+                $("#messageModalBody").text(response.responseJSON.ExceptionMessage);
+                $('#messageModal').modal('show');
+            }
+        });
+    }
 }

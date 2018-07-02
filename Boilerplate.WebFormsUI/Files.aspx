@@ -1,6 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Files.aspx.cs" Inherits="Boilerplate.WebFormsUI.Files" %>
+
 <%@ Import Namespace="System.IO" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="messageModalHeader">Sample Modal</h4>
+                </div>
+                <div class="modal-body" id="messageModalBody">
+                    <p>
+                        This shows how to open a modal with jquery and bootstrap.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                        Ok
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal-->
+
+
+    <h3>jQuery + WebAPI File Upload</h3>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+            <input type='file' id='jQueryFile' class='form-control fileUploader' />
+        </div>
+        <div class="col-xs-6 col-md-2">
+            <span class="label label-info">Auto-Upload <span class="glyphicon glyphicon-upload"></span></span>
+        </div>
+    </div>
+
 
     <h3>Aspx File Upload</h3>
     <div class="row">
@@ -24,8 +60,7 @@
                             <%#((FileInfo)Container.DataItem).Name %>
                         </td>
                         <td>
-                            <a href="../UserFiles/<%#  ((FileInfo)Container.DataItem).Name %>" class="btn btn-warning btn-sm">
-                                Download
+                            <a href="../UserFiles/<%#  ((FileInfo)Container.DataItem).Name %>" class="btn btn-warning btn-sm">Download
                                 <span class="glyphicon glyphicon-download"></span>
                             </a>
                         </td>
